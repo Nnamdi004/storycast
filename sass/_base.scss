@@ -1,0 +1,201 @@
+@use "colors" as *;
+@use "spacing" as *;
+@use "typography" as *;
+@use "mixins" as *;
+
+// ==========================================================================
+// Design tokens as CSS custom properties (generated from the Sass maps)
+// ==========================================================================
+:root {
+  @each $name, $value in $palette {
+    --color-#{$name}: #{$value};
+  }
+  @each $name, $value in $space {
+    --space-#{$name}: #{$value};
+  }
+  @each $name, $value in $type-scale {
+    --fs-#{$name}: #{$value};
+  }
+  --font-body: #{$font-body};
+  --font-display: #{$font-display};
+  --font-mono: #{$font-mono};
+  --radius: #{$radius};
+  --radius-sm: #{$radius-sm};
+  --focus: var(--color-focus);
+  color-scheme: light;
+}
+
+// ==========================================================================
+// Reset
+// ==========================================================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: sp(7); // keeps focused/anchored content clear of the sticky area
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: clr("paper");
+  color: clr("ink");
+  font-family: var(--font-body);
+  font-size: fs("0");
+  line-height: $line-height-body;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video,
+audio,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: $line-height-tight;
+  text-wrap: balance;
+  color: clr("ink");
+}
+
+h1 { font-size: fs("4"); letter-spacing: -0.01em; }
+h2 { font-size: fs("3"); }
+h3 { font-size: fs("2"); }
+h4 { font-size: fs("1"); }
+
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
+}
+
+small {
+  font-size: fs("-1");
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: clr("brand");
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    text-decoration-thickness: 0.18em;
+  }
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+// ==========================================================================
+// Focus: always visible, never colour-only (offset ring + 3px width)
+// ==========================================================================
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+// Programmatic focus targets (skip-link destination) don't need a ring.
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+main:focus {
+  outline: none;
+}
+
+// Dark surfaces swap to the amber ring, which keeps >= 3:1 against night.
+.on-dark {
+  --focus: var(--color-accent);
+  background: clr("night");
+  color: clr("on-dark");
+}
+
+// ==========================================================================
+// User preference and platform adaptations
+// ==========================================================================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .btn,
+  .media-card,
+  .badge,
+  .transcript__cue[aria-current="true"] {
+    border: 2px solid CanvasText;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .player__controls {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

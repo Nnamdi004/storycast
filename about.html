@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About &amp; Access | StoryCast</title>
+  <meta name="description" content="The mission behind StoryCast, the accessibility features built into every story, and how to get involved.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header on-dark">
+    <div class="wrap site-header__inner">
+      <a class="site-logo" href="index.html">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#ffb703"/><path d="M24 18 L48 32 L24 46 Z" fill="#181a45"/></svg>
+        <span>StoryCast</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#stories">Stories</a></li>
+          <li><a href="about.html" aria-current="page">About &amp; Access</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <header class="section__header" style="padding-block-start: var(--space-8); margin-block-end: var(--space-7)">
+        <p class="eyebrow">About &amp; Access</p>
+        <h1>Stories should be open to everyone.</h1>
+        <p class="lede" style="margin-block-start: var(--space-4)">StoryCast is a small collection of audio and video stories, designed so that people can hear, watch or read each one.</p>
+      </header>
+    </div>
+
+    <section class="section section--tint" aria-labelledby="mission-title">
+      <div class="wrap split">
+        <div class="stack">
+          <h2 id="mission-title">Our mission</h2>
+          <p>Good stories travel best when nobody is left out. StoryCast pairs every recording with captions and a complete transcript, so a story reaches people who are deaf or hard of hearing, people on slow or noisy connections, and anyone who simply prefers to read.</p>
+          <p>The project celebrates ordinary voices from African cities and towns: a bus conductor, a weaver, a market seller. The sample stories here are fictional pieces written to show how the format works.</p>
+        </div>
+        <div class="callout">
+          <h3>At a glance</h3>
+          <ul class="checklist" role="list">
+            <li>Captions on every video</li>
+            <li>Full transcript for every story</li>
+            <li>Works with keyboard, screen reader and touch</li>
+            <li>Built to WCAG 2.1 level AA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="access" aria-labelledby="access-title">
+      <div class="wrap">
+        <header class="section__header">
+          <h2 id="access-title">Accessibility features</h2>
+          <p class="lede">What we built, and why it matters.</p>
+        </header>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Captions and transcripts</h3>
+            <p>Video stories carry a captions track. Audio stories show live captions below the player. Each story page includes a full, time-stamped transcript you can read or download.</p>
+          </article>
+          <article class="card">
+            <h3>Keyboard navigation</h3>
+            <p>A skip link jumps past the header. Every link, button and media control is reachable in a logical order, and the focus outline is always visible.</p>
+          </article>
+          <article class="card">
+            <h3>Readable colour and type</h3>
+            <p>Text meets WCAG AA contrast, information is never shown by colour alone, and text scales with your browser settings and reflows down to a 320px-wide screen.</p>
+          </article>
+          <article class="card">
+            <h3>Screen reader support</h3>
+            <p>Pages use landmarks and a clear heading order. The current transcript line is announced with <code>aria-current</code>, and decorative images are hidden from assistive technology.</p>
+          </article>
+          <article class="card">
+            <h3>Respects your settings</h3>
+            <p>Animation and smooth scrolling are switched off when your device asks for reduced motion. You control playback speed and nothing plays automatically.</p>
+          </article>
+          <article class="card">
+            <h3>Works without JavaScript</h3>
+            <p>Players, captions and transcripts work with scripting off. JavaScript only adds clickable timestamps, live captions for audio and the speed control.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-labelledby="how-title">
+      <div class="wrap stack stack--lg">
+        <header class="section__header">
+          <h2 id="how-title">How to engage with a story</h2>
+        </header>
+        <ol class="stack prose">
+          <li><strong>Choose how to take it in.</strong> Press play to listen or watch, or go straight to the transcript.</li>
+          <li><strong>Turn on what helps.</strong> Use the captions button on videos, the playback speed menu, and the optional follow-along scrolling for the transcript.</li>
+          <li><strong>Jump around.</strong> Select a timestamp in the transcript to play from that line.</li>
+        </ol>
+
+        <div class="stack" id="keyboard">
+          <h3>Keyboard shortcuts</h3>
+          <table class="data-table">
+            <caption>Moving around StoryCast with a keyboard</caption>
+            <thead>
+              <tr><th scope="col">Key</th><th scope="col">What it does</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></th><td>Move forward or back through links, buttons and controls.</td></tr>
+              <tr><th scope="row"><kbd>Enter</kbd> or <kbd>Space</kbd></th><td>Activate the focused link or button, including transcript timestamps.</td></tr>
+              <tr><th scope="row"><kbd>Space</kbd> on the player</th><td>Play or pause when the media player has focus.</td></tr>
+              <tr><th scope="row"><kbd>&larr;</kbd> / <kbd>&rarr;</kbd> on the player</th><td>Skip back or forward a few seconds in most browsers.</td></tr>
+              <tr><th scope="row"><kbd>&uarr;</kbd> / <kbd>&darr;</kbd> in the transcript</th><td>Scroll the transcript once it has focus.</td></tr>
+            </tbody>
+          </table>
+          <p class="text-soft"><small>Native player shortcuts vary slightly between browsers.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="statement-title">
+      <div class="wrap split">
+        <div class="stack">
+          <h2 id="statement-title">Accessibility statement</h2>
+          <p>StoryCast aims to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA. This site has been tested with keyboard-only navigation and automated contrast checks.</p>
+          <p><strong>Known limitations.</strong> The sample stories use synthetic narration and abstract visuals. Real recordings should be reviewed to confirm captions are accurate, and a separate audio description may be needed for visual content.</p>
+        </div>
+        <div class="stack">
+          <h2 class="heading-sm">Get involved</h2>
+          <p>Found a barrier, or want to share a story? Open an issue on the project's GitHub page and tell us what you ran into and which device or assistive technology you were using.</p>
+          <p><a class="btn" href="https://github.com/Nnamdi004/storycast/issues">Report an issue on GitHub</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="wrap site-footer__inner">
+      <p><strong>StoryCast</strong><br>Accessible audio and video storytelling. Sample stories are fictional and narrated with a synthetic voice.</p>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About &amp; Access</a></li>
+          <li><a href="https://github.com/Nnamdi004/storycast">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

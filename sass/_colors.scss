@@ -1,0 +1,38 @@
+@use "sass:map";
+// ==========================================================================
+// Colour tokens
+// Every text/background pairing used in the UI is checked against WCAG 2.1 AA
+// by `python3 tools/check_contrast.py`. Keep pairs in that script in sync.
+// ==========================================================================
+
+$palette: (
+  // Surfaces
+  "paper":      #fbf8f3,
+  "surface":    #ffffff,
+  "sand":       #f1e9dd,
+  "night":      #181a45,
+
+  // Text
+  "ink":        #1b1b2f,
+  "ink-soft":   #4a4a63,
+  "on-dark":    #ffffff,
+  "on-dark-soft": #d9d9ee,
+
+  // Brand
+  "brand":      #2a2c6e,
+  "clay":       #a8381b,
+  "accent":     #ffb703,
+
+  // UI
+  "line":       #767692,   // 3:1+ against paper/surface for component borders
+  "line-soft":  #d8d0c2,   // decorative dividers only (not required for understanding)
+  "focus":      #0f3fd1,   // focus ring on light surfaces
+) !default;
+
+// Returns a CSS custom property reference so tokens can be re-themed at runtime.
+@function clr($name) {
+  @if not map.has-key($palette, $name) {
+    @error "Unknown colour token `#{$name}`.";
+  }
+  @return var(--color-#{$name});
+}
