@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "storycast",
+  "version": "1.0.0",
+  "description": "StoryCast: an accessible audio and video storytelling microsite (semantic HTML, Sass, vanilla JS).",
+  "private": true,
+  "scripts": {
+    "build": "sass sass/main.scss css/main.css --style=expanded --no-source-map",
+    "watch": "sass sass/main.scss css/main.css --style=expanded --watch",
+    "serve": "npx --yes http-server -p 8000 -c-1",
+    "contrast": "python3 check_contrast.py"
+  },
+  "devDependencies": {
+    "sass": "^1.105.1"
+  },
+  "license": "MIT"
+}
