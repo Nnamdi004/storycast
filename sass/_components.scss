@@ -1,0 +1,520 @@
+@use "colors" as *;
+@use "spacing" as *;
+@use "typography" as *;
+@use "mixins" as *;
+
+// ==========================================================================
+// Skip link: first focusable element on every page
+// ==========================================================================
+.skip-link {
+  position: absolute;
+  inset-inline-start: sp(4);
+  inset-block-start: 0;
+  z-index: 100;
+  padding: sp(3) sp(5);
+  background: clr("accent");
+  color: clr("ink");
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transform: translateY(-120%);
+
+  &:focus {
+    transform: translateY(0);
+    outline: 3px solid clr("ink");
+    outline-offset: 2px;
+  }
+}
+
+// ==========================================================================
+// Text helpers
+// ==========================================================================
+.eyebrow {
+  font-size: fs("-1");
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: clr("clay");
+}
+
+.lede {
+  font-size: fs("1");
+  color: clr("ink-soft");
+  max-inline-size: $measure;
+}
+
+// ==========================================================================
+// Buttons and links styled as buttons
+// ==========================================================================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: sp(2);
+  min-block-size: $touch-target;
+  padding: sp(2) sp(5);
+  border: 2px solid clr("brand");
+  border-radius: var(--radius-sm);
+  background: clr("brand");
+  color: clr("on-dark");
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: clr("night");
+    border-color: clr("night");
+  }
+
+  &--secondary {
+    background: transparent;
+    color: clr("brand");
+
+    &:hover {
+      background: clr("brand");
+      color: clr("on-dark");
+    }
+  }
+}
+
+// ==========================================================================
+// Badge: type of media is stated in words, never by colour alone
+// ==========================================================================
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: sp(1);
+  padding: 0.1em 0.7em;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-size: fs("-1");
+  font-weight: 700;
+  color: clr("clay");
+  line-height: 1.5;
+}
+
+// ==========================================================================
+// Media card: CONTAINER QUERY component.
+// The card reacts to the width of the box it is placed in (a full-width
+// featured slot, a three-up grid or the 20rem sidebar), not the viewport.
+// ==========================================================================
+.media-card {
+  container: media-card / inline-size;
+  position: relative; // anchors the stretched link
+  background: clr("surface");
+  border: 2px solid clr("line-soft");
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  &:hover {
+    border-color: clr("brand");
+  }
+
+  // Ring the whole card when its link has keyboard focus.
+  &:has(a:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    block-size: 100%;
+  }
+
+  &__img {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: clr("sand");
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: sp(2);
+    padding: sp(4);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: sp(1) sp(3);
+    font-size: fs("-1");
+    color: clr("ink-soft");
+  }
+
+  &__title {
+    font-size: fs("1");
+
+    a {
+      color: clr("ink");
+      text-decoration: none;
+
+      // Stretch the link so the whole card is one large click target.
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 0.08em;
+      }
+
+      // The card shows the ring; avoid a second ring around the text.
+      @supports selector(:has(*)) {
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &__blurb {
+    color: clr("ink-soft");
+    font-size: fs("-1");
+  }
+}
+
+// Medium container: image sits beside the text.
+@container media-card (min-width: 32rem) {
+  .media-card__inner {
+    grid-template-columns: minmax(11rem, 40%) 1fr;
+  }
+
+  .media-card__img {
+    aspect-ratio: auto;
+    block-size: 100%;
+    min-block-size: 11rem;
+  }
+
+  .media-card__body {
+    padding: sp(5);
+    justify-content: center;
+  }
+}
+
+// Wide container (featured slot): larger type and a longer blurb.
+@container media-card (min-width: 52rem) {
+  .media-card__inner {
+    grid-template-columns: minmax(18rem, 45%) 1fr;
+  }
+
+  .media-card__title {
+    font-size: fs("3");
+  }
+
+  .media-card__blurb {
+    font-size: fs("0");
+  }
+}
+
+// Narrow container (e.g. 20rem sidebar): tighter, smaller thumbnail.
+@container media-card (max-width: 22rem) {
+  .media-card__img {
+    aspect-ratio: 3 / 1;
+  }
+
+  .media-card__body {
+    padding: sp(3);
+  }
+}
+
+// ==========================================================================
+// Player: <figure> wrapping native audio/video
+// ==========================================================================
+.player {
+  background: clr("night");
+  color: clr("on-dark");
+  --focus: var(--color-accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  video {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  &__cover {
+    inline-size: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+  }
+
+  audio {
+    inline-size: 100%;
+    margin-block-start: sp(3);
+  }
+
+  &__audio-wrap {
+    padding: sp(4);
+  }
+
+  &__caption {
+    padding: sp(4);
+    font-size: fs("-1");
+    color: clr("on-dark-soft");
+  }
+
+  // Live caption line for audio stories (filled in by js/main.js).
+  &__live {
+    min-block-size: 5.5em; // reserve space so text changes never shift layout
+    padding: sp(4);
+    border-block-start: 1px solid rgb(255 255 255 / 0.25);
+    font-size: fs("1");
+    line-height: 1.45;
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: sp(3) sp(6);
+    padding: sp(4);
+    border-block-start: 1px solid rgb(255 255 255 / 0.25);
+  }
+
+  &__field {
+    display: inline-flex;
+    align-items: center;
+    gap: sp(2);
+    font-size: fs("-1");
+
+    select {
+      min-block-size: $touch-target;
+      padding-inline: sp(3);
+      border: 2px solid clr("on-dark-soft");
+      border-radius: var(--radius-sm);
+      background: clr("night");
+      color: clr("on-dark");
+    }
+
+    input[type="checkbox"] {
+      inline-size: 1.4rem;
+      block-size: 1.4rem;
+      accent-color: clr("accent");
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+// ==========================================================================
+// Transcript: a scrollable, labelled region with a CONTAINER QUERY layout
+// ==========================================================================
+.transcript {
+  container: transcript / inline-size;
+  background: clr("surface");
+  border: 2px solid clr("line-soft");
+  border-radius: var(--radius);
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: sp(3);
+    padding: sp(4) sp(5);
+    border-block-end: 2px solid clr("line-soft");
+  }
+
+  &__title {
+    font-size: fs("2");
+  }
+
+  &__body {
+    position: relative; // offsetParent for follow-along scrolling
+    max-block-size: 26rem;
+    overflow-y: auto;
+    padding: sp(3);
+  }
+
+  &__cue {
+    display: grid;
+    gap: sp(1);
+    padding: sp(3);
+    border-inline-start: 6px solid transparent;
+    border-radius: var(--radius-sm);
+
+    // Active line: tint + thick left bar. Exposed to AT via aria-current.
+    &[aria-current="true"] {
+      background: clr("sand");
+      border-inline-start-color: clr("brand");
+    }
+  }
+
+  &__time {
+    justify-self: start;
+    min-inline-size: 3.25rem;
+    min-block-size: 2.25rem;
+    padding: 0 sp(3);
+    border: 2px solid clr("brand");
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: clr("brand");
+    font-family: var(--font-mono);
+    font-size: fs("-1");
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background: clr("brand");
+      color: clr("on-dark");
+    }
+  }
+
+  // Before JS upgrades the <time> into a button, it is plain text.
+  time.transcript__time {
+    display: inline-flex;
+    align-items: center;
+    border: 0;
+    padding: 0;
+    cursor: default;
+    color: clr("ink-soft");
+  }
+
+  &__speaker {
+    font-weight: 700;
+  }
+
+  &__text {
+    max-inline-size: $measure;
+  }
+
+  &__downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: sp(2) sp(5);
+    padding: sp(4) sp(5);
+    border-block-start: 2px solid clr("line-soft");
+    font-size: fs("-1");
+  }
+}
+
+// Wide transcript: timestamp in its own column.
+@container transcript (min-width: 30rem) {
+  .transcript__cue {
+    grid-template-columns: 4.5rem 1fr;
+    gap: sp(4);
+    align-items: start;
+  }
+}
+
+// ==========================================================================
+// Story meta, callouts, lists, table
+// ==========================================================================
+.story-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: sp(2) sp(5);
+  padding: 0;
+  list-style: none;
+  color: clr("ink-soft");
+  font-size: fs("-1");
+}
+
+.callout {
+  padding: sp(5);
+  background: clr("sand");
+  border-inline-start: 6px solid clr("brand");
+  border-radius: var(--radius-sm);
+
+  > * + * {
+    margin-block-start: sp(3);
+  }
+}
+
+.card {
+  padding: sp(5);
+  background: clr("surface");
+  border: 2px solid clr("line-soft");
+  border-radius: var(--radius);
+
+  > * + * {
+    margin-block-start: sp(3);
+  }
+
+  h3 {
+    font-size: fs("1");
+  }
+}
+
+.details {
+  border: 2px solid clr("line");
+  border-radius: var(--radius-sm);
+  background: clr("surface");
+
+  summary {
+    min-block-size: $touch-target;
+    padding: sp(3) sp(4);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  > :not(summary) {
+    padding: 0 sp(4) sp(4);
+  }
+}
+
+.data-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  background: clr("surface");
+
+  caption {
+    padding-block-end: sp(3);
+    text-align: start;
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    padding: sp(3);
+    text-align: start;
+    vertical-align: top;
+    border-block-end: 2px solid clr("line-soft");
+  }
+
+  thead th {
+    border-block-end: 2px solid clr("line");
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 0 0.45em;
+    border: 2px solid clr("line");
+    border-radius: var(--radius-sm);
+    background: clr("paper");
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+}
+
+.checklist {
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-inline-start: 2rem;
+  }
+
+  li + li {
+    margin-block-start: sp(2);
+  }
+
+  li::before {
+    content: "\2713";
+    position: absolute;
+    inset-inline-start: 0;
+    font-weight: 700;
+    color: clr("brand");
+  }
+}

@@ -1,0 +1,37 @@
+@use "mixins" as *;
+@use "spacing" as *;
+@use "typography" as *;
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Vertical rhythm: space between direct children (the "lobotomised owl").
+.stack > * + * {
+  margin-block-start: var(--stack-space, #{sp(4)});
+}
+
+.stack--lg {
+  --stack-space: #{sp(6)};
+}
+
+// Horizontal group that wraps when space runs out.
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cluster-gap, #{sp(3)});
+  align-items: center;
+}
+
+.prose {
+  max-inline-size: $measure;
+}
+
+.text-soft {
+  color: var(--color-ink-soft);
+}
+
+// Smaller heading size for sidebar titles while keeping the correct heading level.
+.heading-sm {
+  font-size: fs("2");
+}

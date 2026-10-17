@@ -1,0 +1,244 @@
+@use "colors" as *;
+@use "spacing" as *;
+@use "typography" as *;
+@use "mixins" as *;
+
+// ==========================================================================
+// Page frame
+// ==========================================================================
+.wrap {
+  inline-size: min(100% - 2 * #{$gutter}, #{$container-max});
+  margin-inline: auto;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.section {
+  padding-block: sp(7);
+
+  @include up(md) {
+    padding-block: sp(8);
+  }
+
+  &--tint {
+    background: clr("sand");
+  }
+
+  &__header {
+    margin-block-end: sp(6);
+    max-inline-size: $measure;
+  }
+}
+
+// ==========================================================================
+// Header + navigation (Flexbox)
+// ==========================================================================
+.site-header {
+  padding-block: sp(3);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: sp(2) sp(5);
+  }
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: sp(2);
+  min-block-size: $touch-target;
+  font-family: var(--font-display);
+  font-size: fs("2");
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+  }
+
+  svg {
+    inline-size: 2rem;
+    block-size: 2rem;
+    flex: none;
+  }
+}
+
+.site-nav {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: sp(1) sp(4);
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: $touch-target;
+    padding-block: sp(1);
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    border-block-end: 4px solid transparent;
+
+    &:hover {
+      border-block-end-color: var(--color-on-dark-soft);
+    }
+
+    // Current page is shown by weight + a solid underline, not colour alone.
+    &[aria-current="page"],
+    &[aria-current="true"] {
+      border-block-end-color: clr("accent");
+    }
+  }
+}
+
+// ==========================================================================
+// Hero (Grid)
+// ==========================================================================
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); // lets long words/buttons wrap instead of forcing overflow
+  gap: sp(6);
+  align-items: center;
+  padding-block: sp(7);
+
+  @include up(md) {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: sp(8);
+    padding-block: sp(8);
+  }
+
+  &__art {
+    inline-size: 100%;
+    max-inline-size: 22rem;
+    margin-inline: auto;
+  }
+}
+
+// ==========================================================================
+// Card grid (Grid) - featured card spans the full row from md upwards
+// ==========================================================================
+.card-grid {
+  display: grid;
+  gap: sp(5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+
+  // Let each card stretch to the height of its row.
+  > li {
+    display: flex;
+
+    > * {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+    }
+  }
+
+  @include up(md) {
+    > :first-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+// ==========================================================================
+// Story detail: main column + related stories sidebar (Grid)
+// ==========================================================================
+.story-layout {
+  display: grid;
+  gap: sp(7);
+  padding-block: sp(6) sp(8);
+
+  @include up(lg) {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+    gap: sp(8);
+  }
+
+  &__aside {
+    @include up(lg) {
+      position: sticky;
+      inset-block-start: sp(5);
+    }
+  }
+}
+
+.breadcrumb {
+  padding-block: sp(4) 0;
+  font-size: fs("-1");
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: sp(1) sp(2);
+    padding: 0;
+    list-style: none;
+  }
+
+  li:not(:last-child)::after {
+    content: "/";
+    margin-inline-start: sp(2);
+    color: clr("ink-soft");
+  }
+}
+
+// ==========================================================================
+// About page: two-column intro and feature grid
+// ==========================================================================
+.feature-grid {
+  display: grid;
+  gap: sp(5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.split {
+  display: grid;
+  gap: sp(6);
+
+  @include up(md) {
+    grid-template-columns: 1fr 1fr;
+    gap: sp(8);
+  }
+}
+
+// ==========================================================================
+// Footer
+// ==========================================================================
+.site-footer {
+  padding-block: sp(7);
+  margin-block-start: auto;
+  font-size: fs("-1");
+
+  a {
+    color: inherit;
+  }
+
+  &__inner {
+    display: grid;
+    gap: sp(5);
+
+    @include up(md) {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+
+  &__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: sp(2) sp(5);
+    padding: 0;
+    list-style: none;
+  }
+
+  p {
+    color: clr("on-dark-soft");
+  }
+}
