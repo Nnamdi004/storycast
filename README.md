@@ -12,8 +12,8 @@ StoryCast is a three-page, accessible microsite for audio and video storytelling
 
 | Item | Location |
 | --- | --- |
-| Research document (PDF) | [`docs/StoryCast-Research.pdf`](docs/StoryCast-Research.pdf) |
-| Project documentation (PDF) | [`docs/StoryCast-Documentation.pdf`](docs/StoryCast-Documentation.pdf) |
+| Research document (PDF) | [`docs/StoryCast - Research Document.pdf`](docs/StoryCast - Research Document.pdf) |
+| Project documentation (PDF) | [`docs/StoryCast - Documentation.pdf`](docs/StoryCast - Documentation.pdf) |
 | Sitemap (diagram) | [`docs/sitemap.svg`](docs/sitemap.svg) · [`docs/sitemap.png`](docs/sitemap.png) |
 | Wireframes (Figma link) | https://www.figma.com/design/zM6RsWFM6bxFWs3QkNFUbA/StoryCast?node-id=10-3&p=f&t=de8hkxG9Ub9W18l3-0. |
 | High-fidelity mockups (Figma link) | https://www.figma.com/design/zM6RsWFM6bxFWs3QkNFUbA/StoryCast?node-id=10-3&p=f&t=de8hkxG9Ub9W18l3-0. |

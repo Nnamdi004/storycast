@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="1100" height="700">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#333"/></marker></defs>
+<rect width="1100" height="700" fill="#ffffff"/>
+<text x="40" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#222" text-anchor="start">StoryCast sitemap</text>
+<text x="40" y="68" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#555" text-anchor="start">3 page types · 5 HTML files · every page reachable in one click from global navigation</text>
+<rect x="420" y="100" width="260" height="90" rx="10" fill="#2a2c6e" stroke="#181a45" stroke-width="2"/>
+<text x="550" y="138" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">Home</text>
+<text x="550" y="160" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#d9d9ee" text-anchor="middle">index.html</text>
+<text x="550" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#d9d9ee" text-anchor="middle">Intro · featured stories · ways to engage</text>
+<rect x="60" y="300" width="260" height="100" rx="10" fill="#a8381b" stroke="#7a2813" stroke-width="2"/>
+<text x="190" y="338" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">About &amp; Access</text>
+<text x="190" y="360" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#fde8e2" text-anchor="middle">about.html</text>
+<text x="190" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#fde8e2" text-anchor="middle">Mission · accessibility · how to engage</text>
+<rect x="380" y="280" width="680" height="280" rx="12" fill="#f6f1e8" stroke="#888" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="400" y="308" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#444" text-anchor="start">Story detail pages  ·  /story/*.html  ·  one shared template</text>
+<rect x="400" y="340" width="190" height="110" rx="10" fill="#fff" stroke="#2a2c6e" stroke-width="2"/>
+<text x="495" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#181a45" text-anchor="middle">Ten Naira to Yaba</text>
+<text x="495" y="396" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">ten-naira-to-yaba.html</text>
+<text x="495" y="418" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#555" text-anchor="middle">Audio · Lagos</text>
+<text x="495" y="438" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">player · transcript · related</text>
+<rect x="626" y="340" width="190" height="110" rx="10" fill="#fff" stroke="#2a2c6e" stroke-width="2"/>
+<text x="721" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#181a45" text-anchor="middle">Threads of Dawn</text>
+<text x="721" y="396" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">threads-of-dawn.html</text>
+<text x="721" y="418" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#555" text-anchor="middle">Video · Iseyin</text>
+<text x="721" y="438" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">player · transcript · related</text>
+<rect x="852" y="340" width="190" height="110" rx="10" fill="#fff" stroke="#2a2c6e" stroke-width="2"/>
+<text x="947" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#181a45" text-anchor="middle">Voices of Kimironko</text>
+<text x="947" y="396" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">voices-of-kimironko.html</text>
+<text x="947" y="418" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#555" text-anchor="middle">Audio · Kigali</text>
+<text x="947" y="438" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#555" text-anchor="middle">player · transcript · related</text>
+<path d="M590 450 C 590 500, 640 500, 660 450" fill="none" stroke="#2a2c6e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M816 450 C 816 500, 866 500, 886 450" fill="none" stroke="#2a2c6e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<path d="M470 450 C 470 520, 920 520, 920 450" fill="none" stroke="#2a2c6e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="720" y="540" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#2a2c6e" text-anchor="middle">dashed = “Related stories” links</text>
+<path d="M470 190 C 470 250, 190 240, 190 300" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+<text x="300" y="232" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#333" text-anchor="middle">nav · CTA · footer</text>
+<line x1="550" y1="190" x2="550" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+<text x="560" y="240" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#333" text-anchor="start">#stories cards · CTA</text>
+<path d="M320 350 C 360 350, 360 350, 380 350" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+<text x="350" y="340" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#333" text-anchor="middle">nav</text>
+<path d="M700 280 C 720 230, 700 160, 680 150" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="748" y="236" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#333" text-anchor="start">breadcrumb · logo · nav</text>
+<path d="M120 300 C 120 220, 380 150, 420 150" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+<text x="110" y="232" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#333" text-anchor="end">logo · nav</text>
+<rect x="60" y="610" width="980" height="56" rx="8" fill="#181a45" stroke="none" stroke-width="1.5"/>
+<text x="550" y="634" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Global on every page:  Skip link  ·  Logo → Home  ·  Home  ·  Stories (#stories)  ·  About &amp; Access  ·  Footer links</text>
+<text x="550" y="654" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#d9d9ee" text-anchor="middle">Landmarks: header (nav) · main · footer (nav)</text>
+<text x="60" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#555" text-anchor="start">Solid arrow = primary link · dashed arrow = secondary link</text>
+</svg>
